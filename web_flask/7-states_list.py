@@ -9,13 +9,13 @@ app = Flask(__name__)
 
 
 @app.route('/states_list', strict_slashes=False)
-def index():
-    stg = storage.all(State).values()
-    return render_template('7-states_list.html', stg=stg)
+def st_list():
+    st = storage.all(State).values()
+    return render_template('7-states_list.html', st=st)
 
 
 @app.teardown_appcontext
-def stg_close():
+def teardown_db(exception):
     '''remove the current SQLAlchemy Session'''
     storage.close()
 
