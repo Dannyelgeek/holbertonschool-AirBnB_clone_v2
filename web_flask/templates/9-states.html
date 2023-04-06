@@ -13,7 +13,7 @@
     <H1>{{ st }}</H1>
     <H3>Cities:</H3>
     <UL>
-        {% for ct_ind in st_ind.cities|sort(attribute="name") %}
+        {% for ct_ind in items.cities|sort(attribute="name") %}
         <LI>{{ ct_ind.id }}: <B>{{ ct_ind.name }}</B></LI>
         {% endfor %}
     </UL>
