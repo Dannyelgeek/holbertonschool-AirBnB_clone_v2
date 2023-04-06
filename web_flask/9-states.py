@@ -11,10 +11,11 @@ app = Flask(__name__)
 @app.route('/states', defaults={'id': None}, strict_slashes=False)
 @app.route('/states/<path:id>', strict_slashes=False)
 def path_st_list(id):
-    st = storage.all(State).values()
+    st = storage.all(State)
 
     if not id:
-        return render_template('7-states_list.html', items=st)
+        return render_template('7-states_list.html',
+                                items=st.values())
 
     real_st = "State.{}".format(id)
 
