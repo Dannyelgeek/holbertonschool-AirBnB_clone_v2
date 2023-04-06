@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBNB</title>
+</head>
+
+<body>
+    <H1>States</H1>
+    <UL>
+        {% for ind in data.st|sort(attribute="name") %}
+        <LI>{{ ind.id }}: <B>{{ ind.name }}</B>
+            <UL>
+                {% for ind_2 in data.ct|sort(attribute="name") %}
+                <LI>{{ ind_2.id }}: <B>{{ ind_2.name }}</LI>
+            </UL>
+        </LI>
+        {% endfor %}
+    </UL>
+</body>
+
+</html>
