@@ -11,9 +11,9 @@ app = Flask(__name__)
 
 @app.route('/cities_by_states', strict_slashes=False)
 def st_list():
-    data ={
-        'st':storage.all(State).values(),
-        'ct':storage.all(City).values()
+    data = {
+        'st': storage.all(State).values(),
+        'ct': storage.all(City).values()
     }
     return render_template('7-states_list.html', data=data)
 
