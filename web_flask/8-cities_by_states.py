@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/cities_by_states', strict_slashes=False)
 def st_ct_list():
     st = storage.all(State).values()
-    return render_template('8-states_list.html', st=st)
+    return render_template('8-cities_by_states.html', st=st)
 
 
 @app.teardown_appcontext
