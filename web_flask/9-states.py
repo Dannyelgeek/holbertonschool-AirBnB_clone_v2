@@ -21,7 +21,7 @@ def path_st_list(id):
     if real_st in st:
         return render_template(
             '9-states.html',
-            st='State: {}'.format(st[real_st].name),
+            state='State: {}'.format(st[real_st].name),
             items=st[real_st])
 
     return render_template('9-states.html', item=None)
