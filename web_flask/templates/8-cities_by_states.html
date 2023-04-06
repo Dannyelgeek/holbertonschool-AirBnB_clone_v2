@@ -11,11 +11,12 @@
 <body>
     <H1>States</H1>
     <UL>
-        {% for ind in data.st|sort(attribute="name") %}
-        <LI>{{ ind.id }}: <B>{{ ind.name }}</B>
+        {% for st_ind in st|sort(attribute="name") %}
+        <LI>{{ st_ind.id }}: <B>{{ st_ind.name }}</B>
             <UL>
-                {% for ind_2 in data.ct|sort(attribute="name") %}
-                <LI>{{ ind_2.id }}: <B>{{ ind_2.name }}</LI>
+                {% for ct_ind in st_ind.cities|sort(attribute="name") %}
+                <LI>{{ ct_ind.id }}: <B>{{ ct_ind.name }}</B></LI>
+                {% endfor %}
             </UL>
         </LI>
         {% endfor %}
