@@ -9,25 +9,17 @@
 </head>
 
 <body>
-    {% if not_found == True %}
-    <H1>Not found!</H1>
-    {% else %}
-    {% if id == False %}
-    <H1>States</H1>
-    <UL>
-        {% for state in states.values()|sort(attribute="name") %}
-        <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
-        {% endfor %}
-    </UL>
-    {% else %}
-    <H1>State: {{ states.name }}</H1>
+    {% if items %}
+    <H1>{{ state }}</H1>
     <H3>Cities:</H3>
-    {% endif %}
     <UL>
-        {% for city in states.cities|sort(attribute="name") %}
-        <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+        {% for ct_ind in items.cities|sort(attribute="name") %}
+        <LI>{{ ct_ind.id }}: <B>{{ ct_ind.name }}</B></LI>
         {% endfor %}
     </UL>
+    {% else %}
+    <H1>Not found!</H1>
     {% endif %}
+</body>
 
 </html>
