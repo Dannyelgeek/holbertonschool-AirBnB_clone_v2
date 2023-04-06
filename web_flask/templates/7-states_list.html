@@ -9,7 +9,7 @@
 <body>
     <H1>States</H1>
     <UL>
-        {% for ind in data.stg|sort(attribute="name") %}
+        {% for ind in stg|sort(attribute="name") %}
         <LI>{{ ind.id }}: <B>{{ ind.name }}</B></LI>
         {% endfor %}
     </UL>

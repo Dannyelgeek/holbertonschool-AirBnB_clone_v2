@@ -11,10 +11,7 @@ app = Flask(__name__)
 @app.route('/states_list', strict_slashes=False)
 def index():
     stg = storage.all(State).values()
-    data = {
-        'show_stg': stg
-    }
-    return render_template('7-states_list.html', data=data)
+    return render_template('7-states_list.html', stg=stg)
 
 @app.teardown_appcontext
 def stg_close():
