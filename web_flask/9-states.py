@@ -17,7 +17,7 @@ def path_st_list(id):
         return render_template(
             '7-states_list.html',
             items=st.values()
-            )
+        )
 
     real_st = "State.{}".format(id)
 
