@@ -8,7 +8,7 @@ from models import storage
 app = Flask(__name__)
 
 
-@app.route('/states', defaults={'id':None}, strict_slashes=False)
+@app.route('/states', defaults={'id': None}, strict_slashes=False)
 @app.route('/states/<path:id>', strict_slashes=False)
 def path_st_list(id):
     st = storage.all(State).values()
