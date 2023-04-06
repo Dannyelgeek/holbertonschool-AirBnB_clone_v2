@@ -13,11 +13,11 @@ def index():
     stg = storage.all(State).values()
     return render_template('7-states_list.html', stg=stg)
 
+
 @app.teardown_appcontext
 def stg_close():
     '''remove the current SQLAlchemy Session'''
     storage.close()
-
 
 
 if __name__ == '__main__':
