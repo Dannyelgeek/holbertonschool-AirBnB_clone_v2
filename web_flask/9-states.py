@@ -11,21 +11,22 @@ app = Flask(__name__)
 @app.route('/states', defaults={'id': None}, strict_slashes=False)
 @app.route('/states/<path:id>', strict_slashes=False)
 def path_st_list(id):
-    st = storage.all(State)
+    all_states = storage.all(State)
 
     if not id:
-        return render_template('7-states_list.html',
-                                items=st.values())
+        return render_template(
+            '7-states_list.html',
+            items=all_states.values()
+        )
 
-    real_st = "State.{}".format(id)
-
-    if real_st in st:
+    _state = "State.{}".format(id)
+    if _state in all_states:
         return render_template(
             '9-states.html',
-            state='State: {}'.format(st[real_st].name),
-            items=st[real_st])
+            state="State: {}".format(all_states[_state].name),
+            items=all_states[_state])
 
-    return render_template('9-states.html', item=None)
+    return render_template('9-states.html', items=None)
 
 
 @app.teardown_appcontext
