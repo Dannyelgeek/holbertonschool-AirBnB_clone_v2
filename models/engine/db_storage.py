@@ -2,7 +2,7 @@
 """Engine DBStorage"""
 import os
 from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker, session
+from sqlalchemy.orm import scoped_session, sessionmaker, Session
 from models.base_model import Base
 from models.user import User
 from models.city import City
@@ -71,4 +71,4 @@ class DBStorage:
 
     def close(self):
         '''call remove() method on the private session attribute'''
-        session.close(self.__session)
+        Session.close(self.__session)
